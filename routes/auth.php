@@ -104,10 +104,10 @@ Route::post('/login', function(Request $request) {
     $request->validate([
         'login' => ['required', 'string'],
         'password' => ['required', 'string', 'min:4'],
-        'captcha' => ['required']
+        // 'captcha' => ['required']
     ]);
 
-    if(!validateCaptcha($request->captcha)) return APIResponse::reject(2, 'Invalid captcha');
+    // if(!validateCaptcha($request->captcha)) return APIResponse::reject(2, 'Invalid captcha');
 
     $user = User::where('email', $request->login)->orWhere('name', $request->login)->first();
     if(!$user || !Hash::check($request->password, $user->password)) return APIResponse::reject(1, 'Wrong credentials');
