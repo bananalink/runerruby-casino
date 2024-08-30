@@ -133,10 +133,10 @@ Route::post('/register', function(Request $request) {
         'email' => ['required', 'unique:users', 'email'],
         'name' => ['required', 'unique:users', 'string', 'max:64', 'regex:/^[a-zA-Z0-9]{4,64}$/u'],
         'password' => ['required', 'string', 'min:5'],
-        'captcha' => ['required']
+        // 'captcha' => ['required']
     ]);
 
-    if(!validateCaptcha($request->captcha)) return APIResponse::reject(2, 'Invalid captcha');
+    // if(!validateCaptcha($request->captcha)) return APIResponse::reject(2, 'Invalid captcha');
 
     $user = createUser($request->email, $request->name, $request->password);
 

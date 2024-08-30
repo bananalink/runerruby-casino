@@ -92,7 +92,8 @@
                                             </label>
                                         </div>
 
-                                        <button class="btn btn-primary btn-block p-3" :disabled="(type === 'register' && !acceptTerms) || !captchaPayload" @click="done">{{ $t('general.auth.'+(type === 'auth' ? 'login' : 'register')) }}</button>
+                                        <!-- <button class="btn btn-primary btn-block p-3" :disabled="(type === 'register' && !acceptTerms) || !captchaPayload" @click="done">{{ $t('general.auth.'+(type === 'auth' ? 'login' : 'register')) }}</button> -->
+                                        <button class="btn btn-primary btn-block p-3" :disabled="(type === 'register' && !acceptTerms)" @click="done">{{ $t('general.auth.'+(type === 'auth' ? 'login' : 'register')) }}</button>
 
                                         <div class="divider">
                                             <div class="line"></div>
