@@ -54,6 +54,9 @@ router.beforeEach((to, from, next) => {
     let countDownDate = new Date("Jan 9, 2021 13:00:00 UTC").getTime(), now = new Date().getTime(), distance = countDownDate - now;
     if(document.cookie.indexOf('avoidComingSoon') === -1 && distance > 0 && !to.fullPath.startsWith('/coming-soon') && !window.allowed) return false;
 
+    if (to.fullPath.startsWith('/admin') && (!user || user.user.access !== 'admin')) {
+        next('/');
+    }
     const redirect = () => {
         if(window.Layout.Previous && ((to.fullPath.startsWith('/admin') && from.fullPath.startsWith('/admin')) || (!to.fullPath.startsWith('/admin') && !from.fullPath.startsWith('/admin'))))
             return next();
