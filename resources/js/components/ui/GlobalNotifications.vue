@@ -18,19 +18,19 @@
 
     export default {
         created() {
-            // Bus.$on('ws:pingStatus', (status) => this.redis = status);
+            Bus.$on('ws:pingStatus', (status) => this.redis = status);
 
-            // Bus.$on('ws:connect', () => this.ws = true);
-            // Bus.$on('ws:disconnect', () => this.ws = false);
+            Bus.$on('ws:connect', () => this.ws = true);
+            Bus.$on('ws:disconnect', () => this.ws = false);
 
-            // if(window.Echo.connector.socket.connected) this.ws = true;
+            if(window.Echo.connector.socket.connected) this.ws = true;
 
-            // setTimeout(() => this.pageIsLoaded = true, 3000);
+            setTimeout(() => this.pageIsLoaded = true, 3000);
 
-            // setInterval(() => {
-            //     this.signalIconAnim++;
-            //     if(this.signalIconAnim >= 5) this.signalIconAnim = 0;
-            // }, 500);
+            setInterval(() => {
+                this.signalIconAnim++;
+                if(this.signalIconAnim >= 5) this.signalIconAnim = 0;
+            }, 500);
         },
         data() {
             return {
